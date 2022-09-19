@@ -1,0 +1,88 @@
+@mixin button($color, $bg-color) {
+  background: $bg-color;
+  color: $color;
+  &:not(:disabled):not(.disabled) {
+    &:hover,
+    &:focus,
+    &:active,
+    &.hover,
+    &.focus,
+    &.active {
+      background: $bg-color;
+      border-color: transparent;
+      color: $color;
+
+      &::before {
+        border: 0;
+      }
+    }
+  }
+
+  &:disabled {
+    background-color: $bg-color;
+    border-color: $bg-color;
+  }
+
+  .disabled {
+    opacity: 0.65;
+
+    &:active,
+    &:hover {
+      background-color: inherit;
+      border-color: inherit;
+    }
+
+    &:focus {
+      &::before {
+        border: 0;
+      }
+    }
+  }
+}
+
+@mixin outline-btn($color) {
+  border: 1px solid $color;
+
+  &:not(:disabled):not(.disabled) {
+    &:hover,
+    &:focus,
+    &:active,
+    &.hover,
+    &.focus,
+    &.active {
+      border-color: $color;
+    }
+  }
+}
+
+
+@mixin tooltip-arrow($position, $color) {
+  &.bs-tooltip-#{$position} {
+    .arrow {
+      &::before {
+        border-#{$position}-color: $color;
+      }
+    }
+  }
+}
+
+@mixin tooltip($color, $bg-color) {
+  $postitons: "top", "right", "bottom", "left";
+
+  @each $position in $postitons {
+    @include tooltip-arrow($position, $bg-color);
+  }
+
+  .tooltip-inner {
+    background-color: $bg-color;
+    color: $color;
+  }
+}
+
+@mixin progress-bar($line-color, $bg-color) {
+  background-color: $bg-color;
+
+  .progress-bar {
+    background-color: $line-color;
+  }
+}

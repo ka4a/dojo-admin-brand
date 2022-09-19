@@ -1,0 +1,14 @@
+{
+  "name": "@reustleco/dojo-admin-brand",
+  "version": "1.0.14",
+  "description": "A package containing brand elements and SASS themes for dojo mfe",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reustleco/dojo-admin-brand.git"
+  },
+  "author": "StrataK.K.",
+  "license": "UNLICENSED",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@reustleco"
+  }
+}
